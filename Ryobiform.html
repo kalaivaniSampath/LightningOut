@@ -1,28 +1,25 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Embedded Salesforce Flow</title>
-    <script src="https://tti-dev-ed.develop.my.site.com/ContactUs/lightning/lightning.out.js"></script>
+    <title>Lightning Out Case Flow</title>
+    <script  type='text/javascript' src='https://tti-emea--ksdev.sandbox.my.site.com/ContactUs/lightning/lightning.out.js'></script>
 </head>
 <body>
-    <h1>Ryobi Form Submission</h1>
-    <div id="flowContainer"></div>
+    <div id="container"></div>
 
     <script>
-        $Lightning.use(
-            "c:flowlightningOutApp", // your Aura app
+        $Lightning.use("c:contactUsFormApp", 
             function() {
                 $Lightning.createComponent(
-                    "c:RyobiLightningOutFlow",
+                    "lightning:flow", 
                     {},
-                    "RyobiLightningOutFlow",
-                    function(cmp) {
-                        console.log("Flow loaded!");
+                    "container",
+                    function(component) {
+                        component.startFlow("Case_ContactUsForm");
                     }
                 );
             },
-            "https://tti-dev-ed.develop.my.site.com/ContactUs"
+            "https://tti-emea--ksdev.sandbox.my.site.com/ContactUs"
         );
     </script>
 </body>
